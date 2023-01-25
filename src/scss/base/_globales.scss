@@ -1,0 +1,28 @@
+@use 'base/variables' as v;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+body {
+    font-family: v.$fuentePrincipal;
+    font-size: 2rem;
+}
+.body-oscuro {
+    background-color: v.$negro;
+}
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+// body {
+//     background-color: rgb(25, 25, 25);
+    
+// }

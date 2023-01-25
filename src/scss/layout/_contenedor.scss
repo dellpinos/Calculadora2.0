@@ -1,0 +1,24 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor__general {
+
+    @include m.tablet {
+        @include m.grid(3, 1fr);
+    }
+    @include m.desktop {
+        @include m.grid(5, 1fr);
+    }
+    height: 95%;
+    max-height: 120rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2rem;
+    padding: 3rem 4rem 4rem 4rem;
+}
+.contenedor__general--oscuro {
+    background-color: v.$negro;
+}
+
+

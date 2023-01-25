@@ -1,0 +1,95 @@
+@use 'base/variables' as v;
+
+.boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15rem;
+    width: 15rem;
+    font-size: 9rem;
+    font-weight: bold;
+    color: v.$rojo;
+    text-shadow: 0px 0px 6px;
+    -webkit-appearance: none;
+}
+
+
+.boton-oscuro {
+    background-color: v.$negro;
+
+    box-shadow: inset 10px 10px 20px rgba(70, 70, 70, 0.5),
+        -5px -5px 10px 3px v.$rojo;
+
+    &:hover {
+        box-shadow: inset 3px 3px 4px 1px rgba(177, 10, 15, 0.5),
+            -1px -1px 5px 3px rgba(177, 10, 15, 0.2),
+            inset 5px 5px 5px rgba(20, 20, 20, 0.1)
+    }
+
+}
+
+.boton-claro {
+
+    background-color: v.$negro;
+    box-shadow: inset 10px 10px 20px rgba(70, 70, 70, 0.5),
+        -5px -5px 10px 3px rgba(94, 205, 232, 0.9);
+
+    &:hover {
+
+        box-shadow: inset 3px 3px 4px 1px rgba(94, 205, 232, 0.5),
+            -1px -1px 5px 3px rgba(94, 205, 232, 0.2),
+            inset 5px 5px 5px rgba(20, 20, 20, 0.1)
+    }
+}
+
+.boton-Rclaro {
+
+    border-radius: 50%;
+    background-color: v.$blanco;
+    border: 6px solid v.$blanco;
+
+    box-shadow:
+        -10px -10px 15px rgba(255, 255, 255, 0.5),
+        10px 10px 15px rgba(70, 70, 70, 0.12);
+
+    &:checked {
+        &::after {
+            content: 'X';
+
+        }
+        box-shadow:
+            -10px -10px 15px rgba(255, 255, 255, 0.5), // cambia la misma opasidad
+            10px 10px 15px rgba(70, 70, 70, 0.12),      // son pared de shadows positivos y negativos
+            inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+            inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+
+        transform: scale(0.97, 0.97);
+    }
+
+    &:hover {
+        color: v.$verde;
+        text-shadow: 0px 0px 6px;
+        box-shadow:
+            -10px -10px 15px rgba(255, 255, 255, 0.5),
+            10px 10px 15px rgba(70, 70, 70, 0.12),
+            inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+            inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+
+        transform: scale(0.97, 0.97);
+
+
+
+        // box-shadow: inset -5px -5px 20px v.$grisOscuro,
+        //     3px 3px 10px 3px v.$grisClaro;
+    }
+
+}
+
+.icono {
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
