@@ -21,4 +21,20 @@
     background-color: v.$negro;
 }
 
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    border-radius: 10%;
+    margin-top: 15rem;
+}
 
+.teclado {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 3rem 1rem;
+    font-family: v.$fuenteSecundaria;
+    
+}

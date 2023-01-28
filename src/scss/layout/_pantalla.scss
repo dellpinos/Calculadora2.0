@@ -1,0 +1,32 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.pantalla {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    font-size: 5rem;
+    width: 80%;
+    margin: 3rem;
+    text-align: end;
+    font-weight: bold;
+    height: 12rem;
+    padding: 0.5rem;
+
+    background-color: v.$blanco;
+    border: 6px solid v.$blanco;
+    color: v.$verde;
+    border-radius: 2%;
+    text-shadow: 0px 0px 6px;
+    box-shadow:
+        -10px -10px 15px rgba(255, 255, 255, 0.5),
+        10px 10px 15px rgba(70, 70, 70, 0.12),
+        inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+        inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+}
+#numeroVisible {
+    
+}
+.numero-memoria {
+
+}
