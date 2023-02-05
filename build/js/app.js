@@ -1,6 +1,7 @@
 // Selectores
 
 const numeroVisible = document.querySelector('#numeroVisible');
+const numeroMemoria = document.querySelector('#numeroMemoria');
 
 const potencia = document.querySelector('#potencia');
 const raiz = document.querySelector('#raiz');
@@ -45,56 +46,61 @@ let operacion = [];
 let flagDobleOperador = 0;
 
 //inicializar operacion
-for (x = 0; x < 16; x++) {
-    operacion[x] = false;
+iniciarOperador();
+
+function iniciarOperador() {
+    for (x = 0; x < 16; x++) {
+        operacion[x] = false;
+    }
 }
+
 
 // Listeners
 
 // Numeros
 numeroCero.addEventListener('click', function () {
-    botonPresionado(numeroCero);
     armarNumero('0');
+    numeroMemoria.textContent = numeroMemoria.textContent + '0';
 });
 numeroUno.addEventListener('click', function () {
-    botonPresionado(numeroUno);
     armarNumero('1');
+    numeroMemoria.textContent = numeroMemoria.textContent + '1';
 });
 numeroDos.addEventListener('click', function () {
-    botonPresionado(numeroDos);
     armarNumero('2');
+    numeroMemoria.textContent = numeroMemoria.textContent + '2';
 });
 numeroTres.addEventListener('click', function () {
-    botonPresionado(numeroTres);
+    numeroMemoria.textContent = numeroMemoria.textContent + '3';
     armarNumero('3');
 });
 numeroCuatro.addEventListener('click', function () {
-    botonPresionado(numeroCuatro);
+    numeroMemoria.textContent = numeroMemoria.textContent + '4';
     armarNumero('4');
 });
 numeroCinco.addEventListener('click', function () {
-    botonPresionado(numeroCinco);
+    numeroMemoria.textContent = numeroMemoria.textContent + '5';
     armarNumero('5');
 });
 numeroSeis.addEventListener('click', function () {
-    botonPresionado(numeroSeis);
+    numeroMemoria.textContent = numeroMemoria.textContent + '6';
     armarNumero('6');
 });
 numeroSiete.addEventListener('click', function () {
-    botonPresionado(numeroSiete);
+    ; numeroMemoria.textContent = numeroMemoria.textContent + '7';
     armarNumero('7');
 });
 numeroOcho.addEventListener('click', function () {
-    botonPresionado(numeroOcho);
+    numeroMemoria.textContent = numeroMemoria.textContent + '8';
     armarNumero('8');
 });
 numeroNueve.addEventListener('click', function () {
-    botonPresionado(numeroNueve);
     armarNumero('9');
+    numeroMemoria.textContent = numeroMemoria.textContent + '9';
 });
 
 coma.addEventListener('click', function () {
-    botonPresionado(coma);
+    numeroMemoria.textContent = numeroMemoria.textContent + ',';
     if (comaFlag === 0) {
         armarNumero('.');
         comaFlag++;
@@ -104,51 +110,63 @@ coma.addEventListener('click', function () {
 
 // Operadores
 if (!flagDobleOperador) {
-    
+
     flagDobleOperador++;
     sumar.addEventListener('click', function () {
-        botonPresionado(sumar);
+
         almacenarNumero();
+        numeroMemoria.textContent = numeroMemoria.textContent + '+';
         if (operacion[0] == true) {
             cicloOperador();
+        } else {
+            operacion[0] = true;
         }
-        operacion[0] = true;
+        
         limpiarPantalla();
         flagDobleOperador = 0;
 
     });
     restar.addEventListener('click', function () {
-        botonPresionado(restar);
+
         almacenarNumero();
+        numeroMemoria.textContent = numeroMemoria.textContent + '-';
         console.log('-');
         if (operacion[1] == true) {
             cicloOperador();
+        } else {
+            operacion[1] = true;
         }
-        operacion[1] = true;
+        
         limpiarPantalla();
         flagDobleOperador = 0;
 
     });
     dividir.addEventListener('click', function () {
-        botonPresionado(dividir);
+
         almacenarNumero();
+        numeroMemoria.textContent = numeroMemoria.textContent + '/';
         console.log('/');
         if (operacion[2] == true) {
             cicloOperador();
+        } else {
+            operacion[2] = true;
         }
-        operacion[2] = true;
+        
         limpiarPantalla();
         flagDobleOperador = 0;
 
     });
     multiplicar.addEventListener('click', function () {
-        botonPresionado(multiplicar);
+
         almacenarNumero();
+        numeroMemoria.textContent = numeroMemoria.textContent + '*';
         console.log('*');
         if (operacion[3] == true) {
             cicloOperador();
+        } else{
+            operacion[3] = true;
         }
-        operacion[3] = true;
+        
         limpiarPantalla();
         flagDobleOperador = 0;
 
@@ -157,7 +175,21 @@ if (!flagDobleOperador) {
 
 
     potencia.addEventListener('click', function () {
+
+        almacenarNumero();
+
+        numeroMemoria.textContent = numeroMemoria.textContent + 'pot';
+        console.log('pot');
+        if (operacion[4] == true) {
+            cicloOperador();
+        }
+        else {
+            operacion[4] = true;
+        }
+        
+        limpiarPantalla();
         flagDobleOperador = 0;
+
     });
     raiz.addEventListener('click', function () {
         flagDobleOperador = 0;
@@ -168,10 +200,12 @@ if (!flagDobleOperador) {
 
 
     enter.addEventListener('click', function () {
-        botonPresionado(enter);
+
         almacenarNumero();
         cicloOperador();
+        iniciarOperador();
         flagDobleOperador = 0;
+        numeroMemoria.textContent = primerNumero;
     });
 }
 
@@ -179,7 +213,7 @@ if (!flagDobleOperador) {
 
 
 reset.addEventListener('click', function () {
-    botonPresionado(reset);
+
     location.reload()
 });
 
@@ -191,6 +225,7 @@ function armarNumero(numero) {
         flagNumero++;
         numeroString = numeroIngresado.join('');
         numeroVisible.textContent = numeroString;
+
     }
 }
 
@@ -222,8 +257,11 @@ function cicloOperador() {
     for (x = 0; x < 16; x++) {
         if (operacion[x] == true) {
             operador(x);
-            operacion[x] = false;
-            console.log(`ciclo operador: ${operacion[x]} y x: ${x}`)
+
+            console.log(`ciclo operador: ${operacion[x]} y x: ${x}`);
+            console.log("AQUI!!");
+
+            return;
         }
     }
 }
@@ -235,6 +273,7 @@ function operador(operador) {
         case 0:
             primerNumero = primerNumero + segundoNumero;
             numeroVisible.textContent = primerNumero; // mostrar resultado en pantalla
+
             console.log(primerNumero);
             console.log('+');
 
@@ -258,18 +297,43 @@ function operador(operador) {
             numeroVisible.textContent = primerNumero;
             console.log(primerNumero);
             break;
+        case 4:
+            console.log('pot');
+
+            pot(primerNumero, segundoNumero);
+
+            numeroVisible.textContent = potencia2;
+            primerNumero = potencia2;
+            console.log(potencia2);
+            break;
         default:
             console.log('Error de switch');
             break;
     }
 }
 
-function botonPresionado(id) {
-    id.classList.remove('boton-nopresionado');
-    id.classList.add('boton-presionado');
-    setTimeout(() => {
-        id.classList.add('boton-nopresionado');
-        id.classList.remove('boton-presionado');
-    }, 500);
 
+
+// calcula bien
+// se repite un ciclo solo cuando el segundo numero es alto
+let potencia2 = 0;
+
+function pot(priNum, segNum) {
+    let resultado = priNum;
+    for (x = 1; x < segNum; x++) {
+        resultado = resultado * priNum;
+        console.log('vamos bien ' + x);
+    }
+
+    potencia2 = resultado;
 }
+
+// function botonPresionado(id) {
+//     id.classList.remove('boton-nopresionado');
+//     id.classList.add('boton-presionado');
+//     setTimeout(() => {
+//         id.classList.add('boton-nopresionado');
+//         id.classList.remove('boton-presionado');
+//     }, 500);
+
+// }

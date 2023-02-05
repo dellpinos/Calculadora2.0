@@ -2,9 +2,11 @@
 @use 'base/variables' as v;
 
 .pantalla {
-    display: flex;
-    justify-content: end;
-    align-items: flex-end;
+    // display: flex;
+    // justify-content: end;
+    // align-items: flex-end;
+    display: grid;
+
     font-size: 5rem;
     width: 80%;
     margin: 3rem;
@@ -25,8 +27,10 @@
         inset 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
 #numeroVisible {
+    font-family: v.$fuenteSecundaria;
     
 }
-.numero-memoria {
-
+#numeroMemoria {
+    font-family: v.$fuenteSecundaria;
+    font-size: 3rem;
 }
