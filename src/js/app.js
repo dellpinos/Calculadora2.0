@@ -121,7 +121,7 @@ if (!flagDobleOperador) {
         } else {
             operacion[0] = true;
         }
-        
+
         limpiarPantalla();
         flagDobleOperador = 0;
 
@@ -136,7 +136,7 @@ if (!flagDobleOperador) {
         } else {
             operacion[1] = true;
         }
-        
+
         limpiarPantalla();
         flagDobleOperador = 0;
 
@@ -151,7 +151,7 @@ if (!flagDobleOperador) {
         } else {
             operacion[2] = true;
         }
-        
+
         limpiarPantalla();
         flagDobleOperador = 0;
 
@@ -163,10 +163,10 @@ if (!flagDobleOperador) {
         console.log('*');
         if (operacion[3] == true) {
             cicloOperador();
-        } else{
+        } else {
             operacion[3] = true;
         }
-        
+
         limpiarPantalla();
         flagDobleOperador = 0;
 
@@ -186,12 +186,24 @@ if (!flagDobleOperador) {
         else {
             operacion[4] = true;
         }
-        
+
         limpiarPantalla();
         flagDobleOperador = 0;
 
     });
     raiz.addEventListener('click', function () {
+        almacenarNumero();
+
+        numeroMemoria.textContent = numeroMemoria.textContent + 'raiz';
+        console.log('raiz');
+        if (operacion[5] == true) {
+            cicloOperador();
+        }
+        else {
+            operacion[5] = true;
+        }
+
+        limpiarPantalla();
         flagDobleOperador = 0;
     });
     porcentaje.addEventListener('click', function () {
@@ -305,6 +317,16 @@ function operador(operador) {
             numeroVisible.textContent = potencia2;
             primerNumero = potencia2;
             console.log(potencia2);
+            break;
+        case 5:
+            console.log('raiz');
+
+            let resultadoRaiz = Math.pow(primerNumero, 1/segundoNumero);
+
+            numeroVisible.textContent = resultadoRaiz;
+            primerNumero = resultadoRaiz;
+            console.log(resultadoRaiz);
+            
             break;
         default:
             console.log('Error de switch');
