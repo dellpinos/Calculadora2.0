@@ -36,6 +36,7 @@ let flagNumero = 0;
 let almacenarNumeroFlag = 0;
 let comaFlag = 0;
 
+// Variables
 let numeroIngresado = [];
 let numeroString = '';
 
@@ -45,14 +46,12 @@ let segundoNumero = 0;
 let operacion = [];
 let flagDobleOperador = 0;
 
+let potencia2 = 0;
+
 //inicializar operacion
 iniciarOperador();
 
-function iniciarOperador() {
-    for (x = 0; x < 16; x++) {
-        operacion[x] = false;
-    }
-}
+
 
 
 // Listeners
@@ -109,72 +108,99 @@ coma.addEventListener('click', function () {
 
 
 // Operadores
-if (!flagDobleOperador) {
 
-    flagDobleOperador++;
-    sumar.addEventListener('click', function () {
+console.log(`Este es el flag doble operador: ${flagDobleOperador}`);
 
+sumar.addEventListener('click', function () {
+
+    if (!flagDobleOperador) {
         almacenarNumero();
         numeroMemoria.textContent = numeroMemoria.textContent + '+';
         if (operacion[0] == true) {
             cicloOperador();
+            flagDobleOperador = 0;
         } else {
             operacion[0] = true;
         }
-
         limpiarPantalla();
-        flagDobleOperador = 0;
+        flagDobleOperador++;
+    }
 
-    });
-    restar.addEventListener('click', function () {
 
+
+});
+restar.addEventListener('click', function () {
+
+
+
+    if (!flagDobleOperador) {
         almacenarNumero();
         numeroMemoria.textContent = numeroMemoria.textContent + '-';
         console.log('-');
         if (operacion[1] == true) {
             cicloOperador();
+
+            flagDobleOperador = 0;
         } else {
             operacion[1] = true;
         }
 
         limpiarPantalla();
-        flagDobleOperador = 0;
+        flagDobleOperador++;
+    }
 
-    });
-    dividir.addEventListener('click', function () {
+
+
+
+});
+dividir.addEventListener('click', function () {
+
+    if (!flagDobleOperador) {
 
         almacenarNumero();
         numeroMemoria.textContent = numeroMemoria.textContent + '/';
         console.log('/');
         if (operacion[2] == true) {
             cicloOperador();
+
+            flagDobleOperador = 0;
         } else {
             operacion[2] = true;
         }
 
         limpiarPantalla();
-        flagDobleOperador = 0;
+        flagDobleOperador++;
+    }
 
-    });
-    multiplicar.addEventListener('click', function () {
+
+});
+multiplicar.addEventListener('click', function () {
+
+    if (!flagDobleOperador) {
 
         almacenarNumero();
         numeroMemoria.textContent = numeroMemoria.textContent + '*';
         console.log('*');
         if (operacion[3] == true) {
             cicloOperador();
+
+            flagDobleOperador = 0;
         } else {
             operacion[3] = true;
         }
 
         limpiarPantalla();
-        flagDobleOperador = 0;
-
-    });
-
+        flagDobleOperador++;
+    }
 
 
-    potencia.addEventListener('click', function () {
+});
+
+
+
+potencia.addEventListener('click', function () {
+
+    if (!flagDobleOperador) {
 
         almacenarNumero();
 
@@ -182,44 +208,81 @@ if (!flagDobleOperador) {
         console.log('pot');
         if (operacion[4] == true) {
             cicloOperador();
+
+            flagDobleOperador = 0;
         }
         else {
             operacion[4] = true;
         }
 
         limpiarPantalla();
-        flagDobleOperador = 0;
+        flagDobleOperador++;
+    }
 
-    });
-    raiz.addEventListener('click', function () {
+
+
+});
+raiz.addEventListener('click', function () {
+
+    if (!flagDobleOperador) {
+
         almacenarNumero();
 
         numeroMemoria.textContent = numeroMemoria.textContent + 'raiz';
         console.log('raiz');
         if (operacion[5] == true) {
             cicloOperador();
+
+            flagDobleOperador = 0;
         }
         else {
             operacion[5] = true;
         }
 
         limpiarPantalla();
-        flagDobleOperador = 0;
-    });
-    porcentaje.addEventListener('click', function () {
-        flagDobleOperador = 0;
-    });
+        flagDobleOperador++;
+    }
+
+});
+porcentaje.addEventListener('click', function () {
+
+    if (!flagDobleOperador) {
+
+        almacenarNumero();
+        numeroMemoria.textContent = numeroMemoria.textContent + '%';
+        console.log('%');
+        if (operacion[6] == true) {
+            cicloOperador();
+
+            flagDobleOperador = 0;
+        } else {
+            operacion[6] = true;
+        }
+
+        limpiarPantalla();
+        flagDobleOperador++;
+    }
+
+});
+
+let flagDobleEnter = 0;
 
 
-    enter.addEventListener('click', function () {
+enter.addEventListener('click', function () {
+    if (!flagDobleEnter) {
 
         almacenarNumero();
         cicloOperador();
         iniciarOperador();
         flagDobleOperador = 0;
         numeroMemoria.textContent = primerNumero;
-    });
-}
+        flagDobleEnter++;
+
+
+    }
+
+
+});
 
 
 
@@ -230,6 +293,12 @@ reset.addEventListener('click', function () {
 });
 
 // Funciones
+
+function iniciarOperador() {
+    for (x = 0; x < 16; x++) {
+        operacion[x] = false;
+    }
+}
 
 function armarNumero(numero) {
     if (flagNumero < 16) {
@@ -252,6 +321,8 @@ function limpiarPantalla() {
 }
 
 function almacenarNumero(numero) {
+    flagDobleEnter = 0;
+
     if (almacenarNumeroFlag == 0) {
         primerNumero = Number(numeroString);
         almacenarNumeroFlag++;
@@ -266,6 +337,8 @@ function almacenarNumero(numero) {
 }
 
 function cicloOperador() {
+    flagDobleOperador = 0;
+
     for (x = 0; x < 16; x++) {
         if (operacion[x] == true) {
             operador(x);
@@ -319,14 +392,19 @@ function operador(operador) {
             console.log(potencia2);
             break;
         case 5:
+
             console.log('raiz');
 
-            let resultadoRaiz = Math.pow(primerNumero, 1/segundoNumero);
-
+            let resultadoRaiz = Math.pow(primerNumero, 1 / segundoNumero);
             numeroVisible.textContent = resultadoRaiz;
             primerNumero = resultadoRaiz;
             console.log(resultadoRaiz);
-            
+            break;
+        case 6:
+            console.log('%');
+            primerNumero = primerNumero * (segundoNumero / 100);
+            numeroVisible.textContent = primerNumero;
+            console.log(primerNumero);
             break;
         default:
             console.log('Error de switch');
@@ -336,9 +414,6 @@ function operador(operador) {
 
 
 
-// calcula bien
-// se repite un ciclo solo cuando el segundo numero es alto
-let potencia2 = 0;
 
 function pot(priNum, segNum) {
     let resultado = priNum;
@@ -350,12 +425,3 @@ function pot(priNum, segNum) {
     potencia2 = resultado;
 }
 
-// function botonPresionado(id) {
-//     id.classList.remove('boton-nopresionado');
-//     id.classList.add('boton-presionado');
-//     setTimeout(() => {
-//         id.classList.add('boton-nopresionado');
-//         id.classList.remove('boton-presionado');
-//     }, 500);
-
-// }
