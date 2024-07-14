@@ -351,6 +351,9 @@ a {
   -webkit-appearance: none;
   user-select: none;
 }
+.boton:hover {
+  cursor: pointer;
+}
 
 .boton-oscuro {
   background-color: #1c1c1c;
@@ -447,28 +450,16 @@ a {
   justify-content: space-between;
   padding: 3rem 4rem 3rem 4rem;
   margin-bottom: 2rem;
-  box-shadow: 3px 3px 10px #ff0534;
+  box-shadow: 3px 3px 10px #2ef8a0;
 }
 .header h1 {
   font-size: 6rem;
   margin: 0;
-  text-shadow: 1px 0px 6px #FFF;
-}
-.header nav {
-  display: grid;
-  align-items: flex-end;
-  color: #ff0534;
-  font-size: 2rem;
-}
-.header nav a {
-  margin-bottom: 0.5rem;
-}
-.header nav a:visited {
-  color: #840005;
+  text-shadow: 1px 0px 6px #2ef8a0;
 }
 
 .header-oscuro {
-  background-color: #1c1c1c;
+  background-color: #606161;
 }
 
 .pantalla {
@@ -496,3 +487,5 @@ a {
   font-family: "Orbitron", sans-serif;
   font-size: 3rem;
 }
+
+/*# sourceMappingURL=styles.css.map */

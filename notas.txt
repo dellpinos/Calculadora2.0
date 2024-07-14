@@ -1,0 +1,5 @@
+Agregar cambio de signo >> multiplicar el numero por -1
+
+Agregar borrar numero  >> solo borra el string "almacenar numero"
+
+Agregar reset general  >>> borrar strings y todas las variables, se puede resetear el programa?

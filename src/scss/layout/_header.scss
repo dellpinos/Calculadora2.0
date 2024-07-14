@@ -1,4 +1,4 @@
-@use 'base/variables' as v;
+@use '../base/variables' as v;
 
 .header {
     text-align: center;
@@ -9,30 +9,30 @@
     padding: 3rem 4rem 3rem 4rem;
     margin-bottom: 2rem;
 
-    box-shadow: 3px 3px 10px v.$rojo;
+    box-shadow: 3px 3px 10px v.$verde;
 
     h1 {
         font-size: 6rem;
         margin: 0;
-        text-shadow: 1px 0px 6px v.$blanco;
+        text-shadow: 1px 0px 6px v.$verde;
     }
 
-    nav {
-        display: grid;
-        align-items: flex-end;
+    // nav {
+    //     display: grid;
+    //     align-items: flex-end;
 
-        color: v.$rojo;
-        font-size: 2rem;
-        a {
-            margin-bottom: 0.5rem;
-        }
+    //     color: v.$rojo;
+    //     font-size: 2rem;
+    //     a {
+    //         margin-bottom: 0.5rem;
+    //     }
 
-        a:visited {
-            color: v.$rojoOscuro;
-        }
-    }
+    //     a:visited {
+    //         color: v.$rojoOscuro;
+    //     }
+    // }
 
 }
 .header-oscuro {
-    background-color: v.$negro;
+    background-color: v.$grisOscuro;
 }

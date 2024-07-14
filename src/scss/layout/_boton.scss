@@ -1,4 +1,4 @@
-@use 'base/variables' as v;
+@use '../base/variables' as v;
 
 .boton {
     display: flex;
@@ -12,8 +12,11 @@
     // text-shadow: 0px 0px 6px;
     -webkit-appearance: none;
     user-select: none;
-}
 
+    &:hover {
+        cursor: pointer;
+    }
+}
 
 .boton-oscuro {
     background-color: v.$negro;

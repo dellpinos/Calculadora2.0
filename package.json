@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "sass --watch src/scss:build/css",
     "dev": "gulp dev"
   },
   "author": "MdP",
